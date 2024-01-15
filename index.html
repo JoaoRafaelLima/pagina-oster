@@ -26,7 +26,7 @@
     </div>
     <div id="compra-cards">
 
-        <div class="card slice-hidden">
+        <div class="card">
             <div class="card-header text-muted">
                 <strong>
                     <span class="number">1</span>
@@ -59,7 +59,7 @@
                 </div>
                 <div class="campo-form">
                     <label id="l-bairro">bairro</label><br>
-                    <input type="text" class="form-control" onclick="focus_clique(this)">
+                    <input type="text" class="form-control" onclick="focus_clique(this)" id="bairro">
                 </div>
                 <div class="campo-form">
                     <label id="l-comp">complemento</label><br>
@@ -68,166 +68,233 @@
                 <div class="container-sub">
                     <div class="campo-form">
                         <label id="l-cidade">cidade</label><br>
-                        <input type="text" class="form-control" onclick="focus_clique(this)">
+                        <input type="text" class="form-control" onclick="focus_clique(this)" id="cidade">
                     </div>
                     <div class="campo-form">
                         <label id="l-estado">estado</label><br>
-                        <input type="text" class="form-control" onclick="focus_clique(this)">
+                        <input type="text" class="form-control" onclick="focus_clique(this)" id="estado">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="card">
-            <div class="card-header text-muted">
-                <strong>
-                    <span class="number">2</span>
-                    Pagamento
-                </strong>
-            </div>
-            <div id="formas-de-pagamento">
-                <div class="envelop" onclick="selecionar_forma_pagamento(this)">
-                    <span class="check-abs chk" style="display: block;"><i id="check-abs"
-                            class="fa-solid fa-circle-check"></i></span>
-                    <button class="flag-card-active"><i class="far fa-credit-card"></i>Cartão de Crédito</button>
+        <div class="envolucro">
+
+            <div class="card">
+
+                <div class="card-header text-muted">
+                    <strong>
+                        <span class="number">2</span>
+                        Pagamento
+                    </strong>
                 </div>
-                <div class="envelop" onclick="selecionar_forma_pagamento(this)">
-                    <span class="check-abs chk"><i id="check-abs" class="fa-solid fa-circle-check"></i></span>
-                    <button><i class="fas fa-barcode"></i>Boleto</button>
+                <div id="formas-de-pagamento">
+                    <div class="envelop" onclick="selecionar_forma_pagamento(this, 'cartao')">
+                        <span class="check-abs chk" style="display: block;"><i id="check-abs"
+                                class="fa-solid fa-circle-check"></i></span>
+                        <button class="flag-card-active"><i class="far fa-credit-card"></i>Cartão de Crédito</button>
+                    </div>
+                    <div class="envelop" onclick="selecionar_forma_pagamento(this, 'boleto')">
+                        <span class="check-abs chk"><i id="check-abs" class="fa-solid fa-circle-check"></i></span>
+                        <button><i class="fas fa-barcode"></i>Boleto</button>
+                    </div>
+                    <div class="envelop" onclick="selecionar_forma_pagamento(this, 'pix')">
+                        <span class="check-abs chk"><i id="check-abs" class="fa-solid fa-circle-check"></i></span>
+                        <button><i class="fa-brands fa-pix"></i>Pix</button>
+                    </div>
                 </div>
-                <div class="envelop" onclick="selecionar_forma_pagamento(this)">
-                    <span class="check-abs chk"><i id="check-abs" class="fa-solid fa-circle-check"></i></span>
-                    <button><i class="fa-brands fa-pix"></i>Pix</button>
-                </div>
-            </div>
-            <div id="fp-cartao-de-credito">
-                <div id="cartao-animacao">
-                    <div id="cartao">
-                        <div id="frente-cartao" class="face absolute">
-                            <div id="dados-cartao">
-                                <div id="chip" class="absolute">
-                                    <!-- <div id="interno"></div> -->
-                                    <img src="img/chip.png" alt="" srcset="">
+                <div id="fp-cartao-de-credito">
+                    <div id="cartao-animacao">
+                        <div id="cartao">
+                            <div id="frente-cartao" class="face absolute">
+                                <div id="dados-cartao">
+                                    <div id="chip" class="absolute">
+                                        <!-- <div id="interno"></div> -->
+                                        <img src="img/chip.png" alt="" srcset="">
+                                    </div>
+                                    <div id="cc-nome-i" class="absolute"></div>
                                 </div>
-                                <div id="cc-nome-i" class="absolute"></div>
                             </div>
-                        </div>
-                        <div id="trazeira-cartao" class="face absolute">
-                            <div id="faixa" class="absolute"></div>
-                            <div id="numero" class="absolute">
-                                <span>número</span>
-                                <p id="cc-ncartao"></p>
-                            </div>
-                            <div id="vencimento" class="absolute">
-                                <span>vencimento</span>
-                                <p id="cc-vencimento">mes/ano</p>
-                            </div>
-                            <div id="ccv" class="absolute">
-                                <span>ccv</span>
-                                <p id="cc-ccv"></p>
+                            <div id="trazeira-cartao" class="face absolute">
+                                <div id="faixa" class="absolute"></div>
+                                <div id="numero" class="absolute">
+                                    <span>número</span>
+                                    <p id="cc-ncartao"></p>
+                                </div>
+                                <div id="vencimento" class="absolute">
+                                    <span>vencimento</span>
+                                    <p id="cc-vencimento">mes/ano</p>
+                                </div>
+                                <div id="ccv" class="absolute">
+                                    <span>ccv</span>
+                                    <p id="cc-ccv"></p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="campo-form">
-                    <label id="n-cartao">número do cartão</label><br>
-                    <input type="text" class="form-control" onclick="focus_clique(this)"
-                        onfocus="mostrar_trazeira_cartao()" onblur="ocultar_trazeira_cartao()" id="ncartao"
-                        oninput="digitar_dado_cartao(this)">
-
-                </div>
-                <div class="container-sub">
-                    <div class="campo-form" id="campo-vencimento-form">
-                        <label id="l-vencimento">vencimento:mês/ano</label><br>
-                        <div id="vencimento">
-
-                            <select type="text" class="form-control" onclick="focus_clique(this)"
-                                onfocus="mostrar_trazeira_cartao()" onblur="ocultar_trazeira_cartao()" id="vc-mes"
-                                onchange="digitar_dado_cartao(this)">
-                                <option value="">Mês</option>
-                                <option value="01">01</option>
-                                <option value="02">02</option>
-                                <option value="03">03</option>
-                                <option value="04">04</option>
-                                <option value="05">05</option>
-                                <option value="06">06</option>
-                                <option value="07">07</option>
-                                <option value="08">08</option>
-                                <option value="09">09</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                            </select>
-
-                            <span>/</span>
-
-                            <select type="text" class="form-control" onclick="focus_clique(this)"
-                                onfocus="mostrar_trazeira_cartao()" onblur="ocultar_trazeira_cartao()" id="vc-ano"
-                                onchange="digitar_dado_cartao(this)">
-                                <option value="">Ano</option>
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                                <option value="31">31</option>
-                                <option value="32">32</option>
-                                <option value="33">33</option>
-                                <option value="34">34</option>
-                                <option value="35">35</option>
-                                <option value="36">36</option>
-                                <option value="37">37</option>
-                                <option value="38">38</option>
-                                <option value="39">39</option>
-                                <option value="40">40</option>
-                            </select>
-
-                        </div>
-
-                    </div>
-                    <div class="campo-form" id="campo-ccv">
-                        <label id="l-cvv">ccv</label><br>
+                    <div class="campo-form">
+                        <label id="n-cartao">número do cartão</label><br>
                         <input type="text" class="form-control" onclick="focus_clique(this)"
-                            onfocus="mostrar_trazeira_cartao()" onblur="ocultar_trazeira_cartao()" id="ccv"
+                            onfocus="mostrar_trazeira_cartao()" onblur="ocultar_trazeira_cartao()" id="ncartao"
                             oninput="digitar_dado_cartao(this)">
 
                     </div>
+                    <div class="container-sub">
+                        <div class="campo-form" id="campo-vencimento-form">
+                            <label id="l-vencimento">vencimento:mês/ano</label><br>
+                            <div id="vencimento">
 
-                </div>
-                <div class="campo-form">
-                    <label id="l-ncartao">nome impresso no cartão</label><br>
-                    <input type="text" class="form-control" onclick="focus_clique(this)"
-                        oninput="digitar_dado_cartao(this)" id="nome-i">
+                                <select type="text" class="form-control" onclick="focus_clique(this)"
+                                    onfocus="mostrar_trazeira_cartao()" onblur="ocultar_trazeira_cartao()" id="vc-mes"
+                                    onchange="digitar_dado_cartao(this)">
+                                    <option value="">Mês</option>
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="06">06</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                                    <option value="09">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
 
+                                <span>/</span>
+
+                                <select type="text" class="form-control" onclick="focus_clique(this)"
+                                    onfocus="mostrar_trazeira_cartao()" onblur="ocultar_trazeira_cartao()" id="vc-ano"
+                                    onchange="digitar_dado_cartao(this)">
+                                    <option value="">Ano</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                    <option value="32">32</option>
+                                    <option value="33">33</option>
+                                    <option value="34">34</option>
+                                    <option value="35">35</option>
+                                    <option value="36">36</option>
+                                    <option value="37">37</option>
+                                    <option value="38">38</option>
+                                    <option value="39">39</option>
+                                    <option value="40">40</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+                        <div class="campo-form" id="campo-ccv">
+                            <label id="l-cvv">ccv</label><br>
+                            <input type="text" class="form-control" onclick="focus_clique(this)"
+                                onfocus="mostrar_trazeira_cartao()" onblur="ocultar_trazeira_cartao()" id="ccv"
+                                oninput="digitar_dado_cartao(this)">
+
+                        </div>
+
+                    </div>
+                    <div class="campo-form">
+                        <label id="l-ncartao">nome impresso no cartão</label><br>
+                        <input type="text" class="form-control" onclick="focus_clique(this)"
+                            oninput="digitar_dado_cartao(this)" id="nome-i">
+
+                    </div>
+                    <div class="campo-form">
+                        <label id="l-cpf_cnpj">CPF ou CNPJ do titular do cartão</label><br>
+                        <input type="text" class="form-control" onclick="focus_clique(this)"
+                            oninput="digitar_dado_cartao(this)" id="cpf_cnpj">
+                    </div>
+                    <div class="campo-form">
+                        <label id="l-ncartao">parcelas</label><br>
+                        <select type="text" class="form-control form-select" onclick="focus_clique(this)"
+                            oninput="digitar_dado_cartao(this)">
+                            <option value="12">12x de R$ 27,11</option>
+                            <option value="11">11x de R$ 29,16</option>
+                            <option value="10">10x de R$ 31,64</option>
+                            <option value="9">9x de R$ 34,66</option>
+                            <option value="8">8x de R$ 38,45</option>
+                            <option value="7">7x de R$ 43,32</option>
+                            <option value="6">6x de R$ 49,82</option>
+                            <option value="5">5x de R$ 58,94</option>
+                            <option value="4">4x de R$ 72,64</option>
+                            <option value="3">3x de R$ 95,43</option>
+                            <option value="2">2x de R$ 141,08</option>
+                            <option value="1">1x de R$ 270,00</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="campo-form">
-                    <label id="l-cpf_cnpj">CPF ou CNPJ do titular do cartão</label><br>
-                    <input type="text" class="form-control" onclick="focus_clique(this)"
-                        oninput="digitar_dado_cartao(this)" id="cpf_cnpj">
+                <div id="fp-boleto-f">
+                    <div class="mx-0 mb-2">
+
+                        <div class="card-footer payType-2" style="">
+                            <p>1 - Boleto (somente à vista).</p>
+                            <p>2 - Pagamento com Boleto Bancário leva até 3 dias úteis para ser compensado e então ter
+                                os produtos liberados.</p>
+                            <p>3 - Você pode pagar o boleto em qualquer banco ou casa lotérica até o dia do vencimento.
+                            </p>
+                            <p>4 - Depois do pagamento, fique atento ao seu e-mail para receber os dados de acesso ao
+                                produto (verifique também a caixa de SPAM).</p>
+                            <p> Valor no boleto:
+                                <span class="resumeCheckoutTotalValue">270,00</span>
+                            </p>
+                            <hr>
+                            <div class="row mt-2">
+                                <div class="form-group px1 col-md">
+                                    <label for="cpf" class="label-control "><strong>CPF ou CNPJ</strong>
+                                        <br>
+                                        <small>(Obrigatório número válido para envio do pedido)</small>
+                                    </label>
+                                    <input type="tel" name="cpf" id="cpf" class="form-control cpf required" value=""
+                                        maxlength="18" required="required">
+                                    <small class="invalid-feedback cpf_error">CPF ou CNPJ inválido. Digite somente
+                                        números.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="campo-form">
-                    <label id="l-ncartao">parcelas</label><br>
-                    <select type="text" class="form-control form-select" onclick="focus_clique(this)"
-                        oninput="digitar_dado_cartao(this)">
-                        <option value="12">12x de R$ 27,11</option>
-                        <option value="11">11x de R$ 29,16</option>
-                        <option value="10">10x de R$ 31,64</option>
-                        <option value="9">9x de R$ 34,66</option>
-                        <option value="8">8x de R$ 38,45</option>
-                        <option value="7">7x de R$ 43,32</option>
-                        <option value="6">6x de R$ 49,82</option>
-                        <option value="5">5x de R$ 58,94</option>
-                        <option value="4">4x de R$ 72,64</option>
-                        <option value="3">3x de R$ 95,43</option>
-                        <option value="2">2x de R$ 141,08</option>
-                        <option value="1">1x de R$ 270,00</option>
-                    </select>
+                <div id="fp-pix-f">
+                    <div class="mx-0 mb-2">
+
+                        <div class="card-footer payType-6" style="">
+                            <p>1 - Pagamento em segundos, sem complicação</p>
+                            <p>2 - Basta escanear, com o aplicativo do seu banco, o QRCode que iremos gerar para sua
+                                compra</p>
+                            <p>3 - O PIX foi desenvolvido pelo Banco Central para facilitar suas compras e é 100% seguro
+                            </p>
+                            <p>Valor no Pix:
+                                <span class="resumeCheckoutTotalValue">270,00</span>
+                            </p>
+                            <div class="row mt-2">
+                                <div class="form-group mt-2 col-md">
+                                    <label for="cpfPix" class="label-control "><strong>CPF ou CNPJ</strong>
+                                        <br>
+                                        <small>(Obrigatório número válido para envio do pedido)</small>
+                                    </label>
+                                    <input type="tel" name="cpfPix" id="cpfPix" class="form-control cpfPix required"
+                                        value="" maxlength="18" required="required">
+                                    <small class="invalid-feedback cpfPix_error">CPF ou CNPJ inválido. Digite somente
+                                        números.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
-            <div id="fp-boleto-f"></div>
-            <div id="fp-pix-f"></div>
-
+            <div id="finalizar-compra" class="card">
+                <button>Finalizar Compra <i class="fa fa-arrow-right"></i></button>
+                <p>
+                    <i class="fas fa-lock"></i>
+                    Pagamento 100% seguro, processado com criptografia 128bits.
+                </p>
+                <img src="img/compra-segura.png" alt="" srcset="">
+            </div>
         </div>
         <div id="produto-show">
             <img src="img/produto.png" alt="" srcset="">
@@ -251,7 +318,58 @@
             </div>
         </div>
     </div>
+
 </div>
+<footer>
+    <div class="container">
+
+        <div id="popup-rodape">
+            <div class="item-flex">
+                <i class="fas fa-address-card"></i>
+                <div id="detalhes">
+                    <h5 class="marginless paddingless font-bold">E-MAIL DE SUPORTE:</h5>
+                    <p class="marginless">luxlifeoficial@gmail.com</p>
+                </div>
+            </div>
+            <div class="item-flex" id="bloco-2">
+                <div id="footer-pay">
+                    <span>PAGAMENTO PROCESSADO POR:</span>
+                    <img src="img/logo-pagarme.svg" alt="" srcset="">
+                </div>
+                <div class="faixa-seguranca">
+                    <svg width="16" height="20" viewBox="0 0 22 26" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M21.284 5.3s3.65 16.194-10.176 20.243C-2.718 21.494.93 5.3.93 5.3L11.108.644 21.284 5.3zM10.605 18.67l6.42-6.378-1.764-1.751-4.656 4.626-3.124-3.104-1.763 1.751 4.887 4.856z"
+                            fill="#fff"></path>
+                    </svg>
+                    <span class="">Compra 100% Segura</span>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="conteudo">
+            <div id="whatsapp">
+                <i class="my-2 fab fa-whatsapp fa-2x"></i>
+            </div>
+            <strong>Ficou com alguma dúvida?</strong>
+            <div class="">
+                Entre em contato com nossa equipe
+            </div>
+            <a href="https://api.whatsapp.com/send?phone=555587981597343&amp;text=Gostaria de mais informações sobre o produto Oster Caps + Dr. Oster (frete grátis)"
+                target="_blank" class="btn btn-sm btn-success py-1 px-2 w-auto mt-2" style="background-color:#24CD63">
+                <i class="fab fa-whatsapp"></i> FALAR COM NOSSA EQUIPE
+            </a>
+        </div>
+        <hr>
+        <div class="textos-rodape">
+            <p>Esta compra será processada por: Pagar.me © 2024 - Todos os direitos reservados.</p>
+            <br>
+            <p>* Taxa de 2,99% a.m.</p>
+            <p>** Os descontos ofertados não são cumulativos. Prevalecerá o maior de desconto ofertado.</p>
+            <p>Ao continuar nesta compra, você concorda com os Termos de Compra e Termos de Privacidade .</p>
+        </div>
+    </div>
+</footer>
 <script src="script.js"></script>
 
 </html>

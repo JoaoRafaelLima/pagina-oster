@@ -5,8 +5,9 @@
 body{
     padding: 0px;
     margin: 0px;
-    background-color: #eee;
+    background-color: #f5f5f5!important;
     font-family: 'Roboto', sans-serif !important
+    
 }
 #container{
     margin: 0px auto;
@@ -19,8 +20,8 @@ body{
 
 #container  img{
     margin: 0px; 
-    width: 52%;
-    height: auto;
+    width: 100%;
+    height: 600px;
 }
 #container  img#fundo{
     width: 100%;
@@ -412,6 +413,12 @@ input[type=number] {
     width: 45%;
 }
 
+#container #compra-cards .card #fp-boleto-f{
+    display: none;
+}
+#container #compra-cards .card #fp-pix-f{
+    display: none;
+}
 #container #compra-cards #produto-show{
     width: 280px;
     display: flex;
@@ -446,4 +453,244 @@ input[type=number] {
 #container #compra-cards #produto-show .fit-card #precos span.span-verde{
     color: #28A745 !important;
 }
+#container #compra-cards .envolucro #finalizar-compra{
+    background-color: white;
+    margin-top: 30px;
+    width: 420px;
+    height: fit-content;
+    padding-bottom: 40px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-shadow: 4px 2px 7px rgb(0 0 0 / 5%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-top: 30px;
+    padding: 20px;
+}
+#container #compra-cards .envolucro #finalizar-compra button{
+    background: #71c358;
+    color: #fff;
+    font-weight: 500;
+    border: 0;
+    padding: 14px 30px;
+    margin: 0 auto;
+    border-bottom: 5px solid #50b232;
+    border-radius: 10px;
+    font-size: 15px;
+    width: 100%;
+}
+#container #compra-cards .envolucro #finalizar-compra p{
+    color: #28A745 !important;
+    text-align: center;
+    margin: 10px;
+    font-size: 14px;
+}
+#container #compra-cards .envolucro #finalizar-compra img{
+    width: 90%;
+    height: auto;
+}
 
+footer{
+    width: 100%;
+    height: 300px;
+}
+footer .container{
+    width: 70%;
+    margin-left: 15%;
+}
+footer #popup-rodape{
+    background-color: white;
+    margin-top: 30px;
+    width: 100%;
+    height: fit-content;
+    padding-bottom: 40px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-shadow: 4px 2px 7px rgb(0 0 0 / 5%);
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-top: 30px;
+    padding: 20px;
+}
+footer #popup-rodape .item-flex{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+footer #popup-rodape .item-flex i{
+    font-size: 30px;
+    color: #626262;
+}
+footer #popup-rodape .item-flex h5{
+    font-size: 12px;
+    color: #626262;
+    margin-bottom: 0px;
+}
+footer #popup-rodape .item-flex p{
+    margin-bottom: 0px;
+    font-size: 16px;
+    color: #626262;
+}
+footer #popup-rodape #bloco-2 #footer-pay span{
+    font-size: 10px;
+}
+footer #popup-rodape #bloco-2 #footer-pay img{
+    height: 70%;
+    width: auto;
+}
+footer #popup-rodape #bloco-2 .faixa-seguranca {
+    background-color: #7CD063;
+    padding: 7px 12px 7px 13px;
+    z-index: 1;
+    color: #FFFFFF;
+    font-size: 14px;
+    top: 30px;
+    right: -10px;
+    text-transform: uppercase;
+    font-weight: 700;
+    position: absolute;
+    max-width: 215px;
+}
+footer #popup-rodape #bloco-2 .faixa-seguranca:before {
+    position: absolute;
+    content: " ";
+    right: 0;
+    bottom: -10px;
+    display: block;
+    border-style: solid;
+    border-color: transparent;
+    border-top-color: #56A03F;
+    border-bottom: 10px;
+    border-left-width: 0;
+    border-right-width: 10px;
+    border-top-width: 10px;
+}
+footer .container .conteudo{
+    margin: 0px auto;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+footer .container .conteudo .btn-success {
+        background: #71c358;
+        color: #fff;
+        font-weight: 500;
+        border: 0;
+        padding: 14px 30px;
+        margin: 0 auto;
+        border-bottom: 5px solid #50b232;
+        border-radius: 10px;
+        font-size: 15px;
+        width: 100%;
+
+}
+footer .container #whatsapp{
+    background-color: #24CD63;
+    width:3rem;
+    border-radius: 50%;
+    font-size: 16px;
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+footer .container #whatsapp i{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+footer .container .textos-rodape{
+    font-size: 13px;
+    padding-bottom: 50px;
+}
+
+@media (max-width: 1700px) {
+    #container{
+        width: 80%;
+    }
+}
+@media (max-width: 1430px) {
+    #container #compra-cards .envolucro,
+    #container #compra-cards .card{
+        width: 380px;
+    }
+}
+@media (max-width: 1330px) {
+    #container #compra-cards .envolucro,
+    #container #compra-cards .card{
+        width: 340px;
+    }
+    
+}
+@media (max-width: 1000px) {
+    #container #compra-cards .envolucro,
+    #container #compra-cards .card{
+        width: 300px;
+    }
+    #container #compra-cards .card #fp-cartao-de-credito #cartao-animacao #cartao,
+    #container #compra-cards .card #fp-cartao-de-credito #cartao-animacao #cartao #frente-cartao,
+    #container #compra-cards .card #fp-cartao-de-credito #cartao-animacao #cartao #trazeira-cartao {
+        width: 90%!important;
+        height: 140px;
+    }
+}
+
+@media (max-width: 950px) {
+    #container #compra-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    #container #compra-cards .envolucro,
+    #container #compra-cards .card{
+        width: 100%;
+    }
+    #container #compra-cards .envolucro .card{
+        width: 100%!important;
+    }
+    #container #compra-cards .envolucro .card #formas-de-pagamento{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #container #compra-cards .envolucro .card #formas-de-pagamento .envelop{
+        width: 90%;
+    }
+    #container #compra-cards .envolucro .card #formas-de-pagamento .envelop button{
+        width: 100%;
+    }
+    #container #compra-cards .card #div-hidden{
+        width: 90%;
+    }
+    #container #compra-cards .card #fp-cartao-de-credito #cartao-animacao #cartao,
+    #container #compra-cards .card #fp-cartao-de-credito #cartao-animacao #cartao #frente-cartao,
+    #container #compra-cards .card #fp-cartao-de-credito #cartao-animacao #cartao #trazeira-cartao {
+        width: 300px!important;
+        height: 180px;
+    }
+    #container #compra-cards .envolucro .card #finalizar-compra{
+        background-color: red;
+    }
+    #container #compra-cards #produto-show{
+        width: 100%;
+    }
+    #container #compra-cards #produto-show img{
+        width: 90%;
+        height: auto;
+    }
+    #container #compra-cards #produto-show .fit-card{
+        width: 100%;
+    }
+    footer .container{
+        width: 90%;
+        box-sizing: border-box;
+        margin-left: 5%;
+    }
+}

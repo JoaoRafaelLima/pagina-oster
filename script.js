@@ -37,9 +37,7 @@ function verificacao_vazio(item){
         if(span_erro !== null){
             elemento_pai.removeChild(span_erro)
         }
-        if (elemento_pai.children[0].id == "l-telefone"){
-            document.getElementById("div-hidden").style.display = "flex"
-        }
+    
     }
 }
 let itens_ja_clicados = []
@@ -55,7 +53,7 @@ function focus_clique(element){
     //console.log(itens_ja_clicados)
 }
 
-function verificacao_cep(element){
+async function verificacao_cep(element){
     element.setAttribute("maxlength", "9");
     if (element.value.length == 5){
         element.value += "-";
@@ -67,7 +65,10 @@ function verificacao_cep(element){
         mostrar_erro(2, element, "Cep Inválido.")
 
     }else if (element.value.length == 9){
-        buscar_endereco_por_cep(String(element.value).replace("-", ""))
+        let resultado = await buscar_endereco_por_cep(String(element.value).replace("-", ""))
+   
+        document.getElementById("div-hidden").style.display = "flex"
+        preencher_endereco(resultado)
         element.classList.remove("erro")
         element.classList.add("ok")
         elemento_pai = element.parentElement
@@ -81,13 +82,36 @@ function verificacao_cep(element){
     
 }
 
+function preencher_endereco(dados){
+    document.getElementById("estado").value = dados.uf
+    document.getElementById("cidade").value = dados.localidade
+    document.getElementById("bairro").value = dados.bairro
+}
 
-function selecionar_forma_pagamento(element){
+function selecionar_forma_pagamento(element, forma){
+    let cartao = document.getElementById("fp-cartao-de-credito")
+    let boleto = document.getElementById("fp-boleto-f")
+    let pix = document.getElementById("fp-pix-f")
+
+    if (forma === "cartao"){
+        cartao.style.display = "flex"
+        boleto.style.display = "none"
+        pix.style.display = "none"
+    }else if (forma === "boleto"){
+        cartao.style.display = "none"
+        boleto.style.display = "flex"
+        pix.style.display = "none"
+    }else if (forma === "pix"){
+        cartao.style.display = "none"
+        boleto.style.display = "none"
+        pix.style.display = "flex"
+    }
     let span_arr = document.getElementsByClassName("chk")
     for (let index = 0; index < span_arr.length; index++){
         if(span_arr[index] === element.children[0]){
             element.children[0].style.display = "block"
             element.children[1].classList.add("flag-card-active")
+
 
         }else{
             span_arr[index].style.display = "none"
@@ -138,5 +162,5 @@ function ocultar_trazeira_cartao(){
 async function buscar_endereco_por_cep(value){
     let request = await fetch("https://viacep.com.br/ws/"+value+"/json/")
     let response = await request.json()
-    console.log(response)
+    return response
 }
