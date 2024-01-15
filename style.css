@@ -1,0 +1,449 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    padding: 0px;
+    margin: 0px;
+    background-color: #eee;
+    font-family: 'Roboto', sans-serif !important
+}
+#container{
+    margin: 0px auto;
+    width: 60%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#container  img{
+    margin: 0px; 
+    width: 52%;
+    height: auto;
+}
+#container  img#fundo{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: -1;
+    opacity: 0.5;
+    top: -25%;
+    filter: blur(12px);
+}
+
+#container #aviso-de-compra{
+    width: 100%;
+    height: 70px;
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    border: 1px solid #eee;
+    border-radius: 10px;
+    margin-top: 24px;
+    box-shadow: 4px 2px 7px rgb(0 0 0 / 5%);
+    box-shadow: 4px 2px 7px rgb(0 0 0 / 5%);
+    /* padding: 15px 12px; */
+    position: relative;
+    padding-left: 20px;
+}
+#container #aviso-de-compra img{
+    width: 30px;
+    height: auto;
+}
+#container #aviso-de-compra div span{
+    color: #626262;
+    font-weight: 400;
+    
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+#container #aviso-de-compra div span:first-child{
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: lighter;
+}
+#container #aviso-de-compra div span:last-child{
+    font-size: 16px;
+    font-weight: 600;
+}
+#container #compra-cards{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 20px 0px;
+    box-sizing: border-box;
+    margin-bottom: 100px;
+    padding-top: 40px;
+}
+#container #compra-cards .card{
+    background-color: white;
+    width: 420px;
+    height: fit-content;
+    padding-bottom: 40px;
+    border-radius: 8px;
+    box-shadow: 4px 2px 7px rgb(0 0 0 / 5%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-top: 30px;
+}
+#container #compra-cards .fit-card{
+    width: 300px;
+}
+
+#container #compra-cards #div-hidden{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    
+}
+#container #compra-cards .card .card-header {
+    position: absolute;
+    top: -18px;
+    left: 10px;
+    z-index: 10;
+    padding: 0;
+    margin: 0;
+    text-transform: uppercase;
+    background-color: transparent !important;
+    border-bottom: 0 !important;
+}
+#container #compra-cards .card .card-header .text-muted {
+    color: #6C757D !important;
+}
+#container #compra-cards .card .card-header strong {
+    background: #d5d5d5;
+    display: inline-block;
+    padding: 6px 14px 6px 30px !important;
+    border-radius: 300px;
+    color: #fff;
+    margin-left: 18px !important;
+}
+#container #compra-cards .card .card-header span.number {
+    display: block !important;
+    top: -4px;
+    left: 0;
+    color: #fff;
+    background: #b8b8b8;
+    padding: 3px 14px;
+    border-radius: 307px;
+    position: absolute;
+    font-size: 22px;
+    line-height: 36px;
+    width: 42px;
+    height: 42px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif !important
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+#container #compra-cards .card .campo-form{
+    width: 94%;
+    padding: 10px 0px;
+    box-sizing: border-box;
+}
+#container #compra-cards .card .campo-form label{
+    text-transform: uppercase;
+    color: #545454;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+}
+#container #compra-cards .card .campo-form input, select, option{
+    width: 100%;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #BBBBBB;
+    outline: none;
+    margin-top: 5px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+
+
+#container #compra-cards .card .container-sub{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 94%;
+    box-sizing: border-box;
+}
+#container #compra-cards .card .container-sub div.campo-form:first-child{
+    width: 74%;
+}
+#container #compra-cards .card .container-sub div.campo-form:last-child{
+    width: 24%;
+}
+#container #compra-cards .card .campo-form input.erro{
+    border-color: #d70000ce;
+} 
+
+#container #compra-cards .card .campo-form input.ok{
+    border-color: #28A745;
+}
+#container #compra-cards .card .campo-form input.ok:focus{
+    box-shadow: 0 0 0 0.2rem #28a7466e!important;
+}
+#container #compra-cards .card .campo-form input.erro:focus{
+    box-shadow: 0 0 0 0.2rem rgba(167, 40, 40, 0.45)!important;
+}
+#container #compra-cards .card .campo-form .span-aviso{
+    color: #d70000ce;
+    font-size: 14px;
+}
+#container #compra-cards .card #formas-de-pagamento{
+    width: 94%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items:center;
+    gap: 10px;
+}
+#container #compra-cards .card #formas-de-pagamento button{
+    width: 160px;
+    padding: 14px 10px;
+    color: #8a8a8a;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 4px;
+    border: 2px solid #8a8a8a;
+   
+}
+#container #compra-cards .card #formas-de-pagamento button.flag-card-active{
+    border-color: #7dd063 ;
+    color:  #61b746;
+    border-width: 2px;
+    background-color: #fff;
+}
+#container #compra-cards .card #formas-de-pagamento .envelop {
+    position: relative;
+    transition: all .3s;
+}
+#container #compra-cards .card #formas-de-pagamento .envelop span.check-abs{
+    color:  #61b746;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-size: 20px;
+    background-color: white;
+    border-radius: 50%;
+    display: none;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    line-height: 1px;
+    
+}
+#container #compra-cards .card #formas-de-pagamento .envelop span.check-abs i{
+    line-height: 1;
+}
+
+#container #compra-cards .card #formas-de-pagamento .envelop:hover{
+    transform: scale(1.05);
+}
+#container #compra-cards .card #formas-de-pagamento button img{
+    width: 20px;
+    height: auto;
+}
+#fp-cartao-de-credito{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+#container #compra-cards .card #fp-cartao-de-credito #cartao-animacao{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+#container #compra-cards .card #fp-cartao-de-credito #cartao-animacao #cartao{
+    width: 300px;
+    height: 180px;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 500px;
+    transition: .75s ease-in-out;
+    
+    
+}
+
+#container #compra-cards .card #fp-cartao-de-credito #cartao-animacao #cartao .face{
+    box-shadow: 2px 1px 2px 2px rgb(0 0 0 / 20%);
+    border-radius: 8px;
+    width: 300px;
+    height: 180px;
+    /* background-color: #DDD; */
+    background: linear-gradient(140deg, #004aad, #ef3e00);
+    /* background: linear-gradient(135deg, rgb(255 255 255 10%) 0%, transparent, 100%);
+    backdrop-filter: blur(10px); */
+    transform-style: preserve-3d;
+    transition: .75s ease-in-out;
+    backface-visibility: hidden;
+    transform: rotateY(0);
+    color: #ddd;
+    font-family: "consolas";
+    font-weight: 600px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    
+}
+
+#container #compra-cards .card #fp-cartao-de-credito #cartao-animacao #cartao #trazeira-cartao{
+    transform: rotateY(180deg);
+    /* background: linear-gradient(140deg, #ef3e00, #004aad); */
+}
+#container #compra-cards .card #fp-cartao-de-credito #cartao-animacao #cartao:hover #frente-cartao{
+    transform: rotateY(180deg);
+}
+#container #compra-cards .card #fp-cartao-de-credito #cartao-animacao #cartao:hover #trazeira-cartao{
+    transform: rotateY(360deg);
+}
+#container #compra-cards .card #fp-cartao-de-credito #cartao-animacao #cartao #chip{
+    background-color: #ccc;
+    background: linear-gradient(45deg, #ccc, #ccd);
+    width: 45px;
+    height: 36px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    top: 40px;
+    left: 30px;
+    border: 1px solid #ccc;
+}
+#container #compra-cards .card #fp-cartao-de-credito #cartao-animacao #cartao #chip img{
+    width: 90%;
+    height: auto;
+    mix-blend-mode: overlay;
+}
+#container #compra-cards .card #fp-cartao-de-credito #cartao-animacao #cartao #cc-nome-i{
+    top: 130px;
+    left: 30px;
+}
+
+#container #compra-cards .card #fp-cartao-de-credito #cartao-animacao #cartao .absolute{
+    position: absolute;
+}
+
+#container #compra-cards .card #fp-cartao-de-credito #cartao-animacao #cartao #trazeira-cartao #faixa{
+    background-color: #eee;
+    width: 100%;
+    height: 40px;
+    top: 20px;
+    mix-blend-mode: hard-light;
+}
+    
+
+#container #compra-cards .card #fp-cartao-de-credito #cartao-animacao #cartao #trazeira-cartao #numero{
+    top: 70px;
+    left: 30px;
+}
+#container #compra-cards .card #fp-cartao-de-credito #cartao-animacao #cartao #trazeira-cartao #vencimento{
+    left: 30px;
+    top: 120px;
+    height: fit-content;
+}
+#container #compra-cards .card #fp-cartao-de-credito #cartao-animacao #cartao #trazeira-cartao #ccv{
+    left: 140px;
+    top: 120px;
+    height: fit-content;
+}
+#container #compra-cards .card #fp-cartao-de-credito #cartao-animacao #cartao #trazeira-cartao  span{
+    font-size: 10px;
+}
+
+#container #compra-cards .card #fp-cartao-de-credito select{
+    padding: 10px;
+}
+#container #compra-cards .card .container-sub #campo-vencimento-form{
+    width: 45%;
+}
+#container #compra-cards .card .container-sub #vencimento{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 0px;
+    height: fit-content;
+}
+#container #compra-cards .card .container-sub #vencimento span{
+    font-size: 30px;
+}
+#container #compra-cards .card .container-sub #vencimento .campo-form {
+    width: 45%;
+    padding: 5px;
+}
+#container #compra-cards .card .container-sub #vencimento .campo-form input{
+    margin: 0px;
+}
+
+#container #compra-cards .card #campo-ccv{
+    width: 45%;
+}
+
+#container #compra-cards #produto-show{
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+#container #compra-cards #produto-show img{
+    width:260px;
+    height: auto;
+}
+#container #compra-cards #produto-show .fit-card{
+    width: 260px;
+    padding: 70px 0px 20px 0px;
+    box-sizing: border-box;
+}
+#container #compra-cards #produto-show .fit-card span{
+    text-align: center;
+}
+#container #compra-cards #produto-show .fit-card #precos{
+    margin-top: 10px;
+    width: 100%;
+    height: fit-content;
+    background-color: #F8F9FA !important;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+#container #compra-cards #produto-show .fit-card #precos span{
+    font-size: 14px;
+}
+#container #compra-cards #produto-show .fit-card #precos span.span-verde{
+    color: #28A745 !important;
+}
+
