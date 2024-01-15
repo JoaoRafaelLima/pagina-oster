@@ -136,7 +136,7 @@ function ocultar_trazeira_cartao(){
 }
 
 async function buscar_endereco_por_cep(value){
-    let request = await fetch("viacep.com.br/ws/"+value+"/json/")
+    let request = await fetch("https://viacep.com.br/ws/"+value+"/json/")
     let response = await request.json()
     console.log(response)
 }
