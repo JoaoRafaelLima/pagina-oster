@@ -164,3 +164,4 @@ async function buscar_endereco_por_cep(value){
     let response = await request.json()
     return response
 }
+/*teste*/
